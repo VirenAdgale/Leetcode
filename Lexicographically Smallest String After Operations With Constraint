@@ -1,0 +1,19 @@
+class Solution {
+    public String getSmallestString(String s, int k) {
+        char[] c=s.toCharArray(); 
+        for(int i=0;i<s.length() && k>0 ;i++)
+        {
+            int dist=Math.min(( c[i] - 'a') ,('z' - c[i] + 1));
+             if (dist <= k) {
+                k -= dist;
+                c[i] = 'a';
+            } else {
+                c[i] = (char)(c[i] - k);
+                k = 0;
+            }
+        }
+        return new String(c);
+        }
+        
+    
+}
